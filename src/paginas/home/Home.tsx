@@ -1,14 +1,33 @@
-import React from 'react';
-import './Home.css';
+import React from "react";
+import { Typography, Grid, Button, TextField } from "@material-ui/core";
+import "./Home.css";
+import { Box } from "@mui/material";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 
-function Home(){
-    return (
-        <>
-         <h1 className='titulo'>Home</h1>
-         <img className='img' src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-entusiasmado_114360-3478.jpg?w=900&t=st=1666891265~exp=1666891865~hmac=2080e4dd6762ae518a30a686e42b2be496cf5e5b021db01fcd9d6d8d95f1c2e1" 
-         alt="Imagem utensílios de viagem" />
-        </>
-    );
+function Home() {
+  return (
+    <>
+      <Grid container>
+        <Grid item xs={12} className="loginPage">
+          <Box className="card">
+            <Typography variant="h3">Login</Typography>
+
+            <form>
+              <TextField
+                id="standard-basic"
+                label="E-mail"
+                variant="standard"
+              />
+              <TextField id="standard-basic" label="Senha" variant="standard" />
+              <Button variant="contained" className="botao">
+                Entrar
+              </Button>
+            </form>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
+  );
 }
 
 export default Home;

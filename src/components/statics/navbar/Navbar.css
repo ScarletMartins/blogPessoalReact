@@ -1,0 +1,9 @@
+.font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cabecalho {
+    margin-top: 5px !important;
+    cursor: pointer;
+    margin-left: 20px !important;
+}

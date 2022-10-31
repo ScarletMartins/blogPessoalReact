@@ -1,11 +1,49 @@
-.titulo{
-    text-align: center;
-    color: #bc4749;
-}
-
-.img{
-    width: 250px;
-    height: 250px;
-    display: block;
-    margin: 0 auto;
-}
+.loginPage {
+    width: 100vw;
+    min-height: calc(100vh - 64px);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-image: url('https://img.freepik.com/fotos-gratis/femininos-turistas-na-mao-tem-um-mapa-de-viagem-feliz_1150-7411.jpg?w=1800&t=st=1667218391~exp=1667218991~hmac=cee9b3970ae56445a170f07ce6cfa128ef4a704593ddb2a84f9b951ccf69b99a');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .card {
+    background: linear-gradient(36deg, #ffb80320 8%, #8f4b2595 89%);
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    min-height: 30vh;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px
+  }
+  
+  label {
+    color: #fff !important
+  }
+  
+  h3 {
+    color: white
+  }
+  
+  .botao {
+    background-color: #ffb703 !important
+  }
+  
+  .MuiInput-underline:before {
+    border-bottom: 2px solid #e8d69d!important;
+  }
+  
+  .MuiInput-underline:after {
+    border-bottom: 2px solid #e8d69d !important
+  }
