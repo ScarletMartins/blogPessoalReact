@@ -5,29 +5,30 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import {Typography, Grid } from '@material-ui/core';
 import { Box } from '@mui/material';
+import './Footer.css';
 
 function Footer() {
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box style={{ backgroundColor: "#fff1cc", height: "120px" }}>
+                    <Box className='box1'>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
                             <Typography variant="h5" align="center" gutterBottom style={{ color: "#606c38" }}>Me siga nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://github.com/ScarletMartins" target="_blank">
-                                <GitHubIcon style={{ fontSize: 60, color: "#ffb703" }} />
+                                <GitHubIcon className='redes' />
                             </a>
                             <a href="https://www.instagram.com/_scarletmartins/?r=nametag" target="_blank">
-                                <InstagramIcon style={{ fontSize: 60, color: "#ffb703" }} />
+                                <InstagramIcon className='redes' />
                             </a>
                             <a href="https://www.linkedin.com/in/scarletmartins/" target="_blank">
-                                <LinkedInIcon style={{ fontSize: 60, color: "#ffb703" }} />
+                                <LinkedInIcon className='redes' />
                             </a>
                         </Box>
                     </Box>
-                    <Box style={{ backgroundColor: "#ffb703", height: "60px" }}>
+                    <Box className='box2'>
                         <Box paddingTop={1}>
                             <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2022 Copyright:</Typography>
                         </Box>

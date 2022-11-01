@@ -1,8 +1,6 @@
 import {
   alpha,
   AppBar,
-  createTheme,
-  ThemeProvider,
   Toolbar,
   Typography,
 } from "@material-ui/core";
@@ -11,6 +9,7 @@ import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -92,19 +91,22 @@ function Navbar() {
                 Cadastrar Tema
               </Typography>
             </Box>
-            <Box>
-              <a href="">
-                <LogoutIcon
-                  style={{
-                    color: "#ffb703",
-                    position: "absolute",
-                    right: 10,
-                    width: "40",
-                    height: "40",
-                  }}
-                />
-              </a>
-            </Box>
+            <Link to='/login' className="text-decorator-none">
+              <Box>
+                <a href="">
+                  <LogoutIcon
+                    style={{
+                      color: "#ffb703",
+                      position: "absolute",
+                      right: 10,
+                      width: "40",
+                      height: "40",
+                    }}
+                  />
+                </a>
+              </Box>
+            </Link>
+           
             <Box>
               <Avatar
                 style={{ position: "absolute", right: 60}}

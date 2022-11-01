@@ -7,3 +7,7 @@
     cursor: pointer;
     margin-left: 20px !important;
 }
+
+.text-decorator-none {
+    text-decoration: none;
+}
