@@ -14,7 +14,7 @@ function Footer() {
                 <Grid alignItems="center" item xs={12}>
                     <Box className='box1'>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ color: "#606c38" }}>Me siga nas redes sociais </Typography>
+                            <Typography variant="h6" align="center" gutterBottom className='chamada'>Me siga nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://github.com/ScarletMartins" target="_blank">
@@ -30,11 +30,11 @@ function Footer() {
                     </Box>
                     <Box className='box2'>
                         <Box paddingTop={1}>
-                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2022 Copyright:</Typography>
+                            <Typography variant="subtitle2" align="center" gutterBottom className='texto' >© 2022 Copyright:</Typography>
                         </Box>
                         <Box>
                             <a style={{textDecoration: "none"}} target="_blank" href="https://github.com/ScarletMartins">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">Scarlet Martins</Typography>
+                                <Typography variant="subtitle2" gutterBottom className='texto' align="center">Scarlet Martins</Typography>
                             </a>
                         </Box>
                     </Box>

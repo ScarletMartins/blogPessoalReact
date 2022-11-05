@@ -1,14 +1,22 @@
 .box1{
-    background-color: "#ffb703";
+    background-color: "#ffb703" !important;
     height: 120px;
 }
 
 .box2{
-    background-color: "#ffb703";
+    background-color: "#ffb703" !important;
     height: "60px";
 }
 
 .redes{
     font-size: 60px !important;
     color: #ffb703;
+}
+
+.texto {
+    color: #ffb703;
+}
+
+.chamada {
+    color: #606c38;
 }
