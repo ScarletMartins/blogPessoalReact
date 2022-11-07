@@ -28,7 +28,7 @@ function CadastroUsuario() {
     if (userResult.id != 0) {
       history("/login");
     }
-  }, [history, userResult]);
+  }, [userResult]);
 
   function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
     setConfirmarSenha(e.target.value);
@@ -42,13 +42,18 @@ function CadastroUsuario() {
   }
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (confirmarSenha == user.senha) {
-      cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult);
-      alert("Usuario cadastrado com sucesso");
+    if (confirmarSenha === user.senha && user.senha.length >= 8) {
+      try {
+        await cadastroUsuario('/usuarios/cadastrar', user, setUserResult);
+        alert('Usuário cadastrado com sucesso');
+      } catch (error) {
+        alert('Falha no servidor');
+      }
     } else {
-      alert(
-        "Dados inconsistentes. Favor verificar as informações de cadastro."
-      );
+      alert('As senhas não conferem. Verificar novamente');
+
+      setUser({ ...user, senha: ''});
+      setConfirmarSenha('')
     }
   }
 

@@ -54,8 +54,8 @@ function Login() {
                     <Box padding={20}>
                         <form onSubmit={onSubmit}>
                             <Typography variant="h3" gutterBottom color='textPrimary' component='h3' align='center' className="textos">Entrar</Typography>
-                            <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel} id="usuario"  variant="outlined" label='Usuário (e-mail)' name='usuario' fullWidth margin="normal"/>
-                            <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel} id="senha" variant="outlined" label='Senha' name='senha' type='password' fullWidth margin="normal"/>
+                            <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario"  variant="outlined" label='Usuário (e-mail)' name='usuario' fullWidth margin="normal"/>
+                            <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" variant="outlined" label='Senha' name='senha' type='password' fullWidth margin="normal"/>
                             <Box marginBottom={2} textAlign='center'>
                                     <Button type="submit" variant="contained" color="primary">Entrar</Button> 
                             </Box>
