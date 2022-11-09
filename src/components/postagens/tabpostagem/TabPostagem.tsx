@@ -4,6 +4,7 @@ import { TabContext, TabPanel } from '@material-ui/lab';
 import './TabPostagem.css';
 import { Box } from '@mui/material';
 import ListaPostagem from '../listapostagem/ListaPostagem';
+import { fontWeight } from '@mui/system';
 
 
 function TabPostagem() {
@@ -15,9 +16,9 @@ function TabPostagem() {
    /*Nesse tabcontext, ao clicar em postagens ou sobre nós, ele vai definir o valor e vai redirecionar para a página escolhida*/ <>
       <TabContext value={value}> 
         <AppBar position="static">
-          <Tabs centered indicatorColor="secondary" onChange={handleChange}>
-            <Tab label="Todas as postagens" value="1"/>
-            <Tab label="Sobre-nós" value="2" />
+          <Tabs centered indicatorColor="secondary" onChange={handleChange} style={{background: '#fff1cc'}}>
+            <Tab label="Todas as postagens" value="1"  style={{ color: "#606c38", fontWeight: 'bold' }}/>
+            <Tab label="Sobre-nós" value="2"  style={{ color: "#606c38", fontWeight: 'bold' }}/>
           </Tabs>
         </AppBar>
         <TabPanel value="1" >

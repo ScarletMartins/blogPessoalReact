@@ -6,8 +6,11 @@ import User from "../../models/User";
 import { cadastroUsuario } from "../../service/Service";
 
 function CadastroUsuario() {
+
   let history = useNavigate();
+
   const [confirmarSenha, setConfirmarSenha] = useState<String>("");
+  
   const [user, setUser] = useState<User>({
     id: 0,
     nome: "",
