@@ -1,9 +1,4 @@
-import {
-  alpha,
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+import { alpha, AppBar, Toolbar, Typography } from "@material-ui/core";
 import { Box, InputBase, styled } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
@@ -48,55 +43,57 @@ function Navbar() {
   return (
     <>
       <AppBar position="static">
-        <Toolbar variant="dense" style={{ backgroundColor: "#fff1cc" }}>
+        <Toolbar variant="dense" className="toolbar">
           <Box className="cabecalho">
-            <Avatar src="https://imgur.com/3xqIYLH.png" style={{height: 58, width: 60, left: 10}}></Avatar>
+            <img
+              src="https://imgur.com/JrQAbe2.png"
+              alt=""
+              style={{ height: 30, width: 100}}
+            />
           </Box>
 
           <Box
             display="flex"
             justifyContent="center"
-            style={{ color: "#606c38" }}
+            style={{ color: "#fff" }}
             marginLeft={5}
           >
-            <Box
-              mx={1}
-              className="cabecalho"
-            >
-              <Typography variant="h6" color="inherit">
-                Home
-              </Typography>
+            <Box mx={1} className="cabecalho">
+              <Link to="/home" className="text-decorator-none">
+                <Typography variant="h6" color="inherit">
+                  Home
+                </Typography>
+              </Link>
             </Box>
-            <Box
-              mx={1}
-              className="cabecalho"
-            >
-              <Typography variant="h6" color="inherit">
-                Postagens
-              </Typography>
+            <Box mx={1} className="cabecalho">
+              <Link to="/posts" className="text-decorator-none">
+                <Typography variant="h6" color="inherit">
+                  Postagens
+                </Typography>
+              </Link>
             </Box>
-            <Box
-              mx={1}
-              className="cabecalho"
-            >
-              <Typography variant="h6" color="inherit">
-                Temas
-              </Typography>
+            <Box mx={1} className="cabecalho">
+              <Link to="/temas" className="text-decorator-none">
+                <Typography variant="h6" color="inherit">
+                  Temas
+                </Typography>
+              </Link>
             </Box>
-            <Box
-              mx={1}
-              className="cabecalho"
-            >
-              <Typography variant="h6" color="inherit">
+            <Box mx={1} className="cabecalho">
+              <Typography
+                variant="h6"
+                color="inherit"
+                className="text-decorator-none"
+              >
                 Cadastrar Tema
               </Typography>
             </Box>
-            <Link to='/login' className="text-decorator-none">
+            <Link to="/login" className="text-decorator-none">
               <Box>
                 <a href="">
                   <LogoutIcon
                     style={{
-                      color: "#ffb703",
+                      color: "#fff",
                       position: "absolute",
                       right: 10,
                       width: "40",
@@ -106,22 +103,32 @@ function Navbar() {
                 </a>
               </Box>
             </Link>
-           
+
             <Box>
-              <Avatar
-                style={{ position: "absolute", right: 60}}
-                alt="Scarlet"
-                src="https://github.com/ScarletMartins.png"
-              />
+              <Link to='/home'>
+                <Avatar
+                  style={{ position: "absolute", right: 60 }}
+                  alt="Scarlet"
+                  src="https://github.com/ScarletMartins.png"
+                />
+              </Link>
             </Box>
             <Box>
-              <Search style={{ position: "absolute", right: 210 }}>
+              <Search
+                style={{
+                  position: "absolute",
+                  right: 210,
+                  color: "#fff",
+                  backgroundColor: "#5A4F58",
+                }}
+              >
                 <SearchIconWrapper>
                   <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
                   placeholder="Search…"
                   inputProps={{ "aria-label": "search" }}
+                  style={{ fontWeight: "bold" }}
                 />
               </Search>
             </Box>

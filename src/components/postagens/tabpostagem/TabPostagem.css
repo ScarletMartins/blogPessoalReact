@@ -1,3 +1,8 @@
 .titulo{
     font-weight: bold;
  }
+
+ .tab {
+    color: #fff !important;
+    font-weight: bold !important;
+ }

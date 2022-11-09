@@ -2,7 +2,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.toolbar {
+    background-color: #9A8C98;
+}
+
 .cabecalho {
+    width: 80px;
     margin-top: 5px !important;
     cursor: pointer;
     margin-left: 20px !important;
@@ -10,4 +15,6 @@
 
 .text-decorator-none {
     text-decoration: none;
+    color: #fff !important;
+    width: 220px;
 }

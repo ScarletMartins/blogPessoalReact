@@ -11,8 +11,8 @@ function Footer() {
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center">
-                <Grid alignItems="center" item xs={12}>
-                    <Box className='box1'>
+                <Grid alignItems="center" item xs={12} className='redes-bg'>
+                    <Box>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
                             <Typography variant="h6" align="center" gutterBottom className='chamada'>Me siga nas redes sociais </Typography>
                         </Box>
