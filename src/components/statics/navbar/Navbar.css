@@ -4,11 +4,11 @@
 
 .toolbar {
     background-color: #9A8C98;
+    height: 55px !important;
 }
 
 .cabecalho {
-    width: 80px;
-    margin-top: 5px !important;
+    min-width: 80px;
     cursor: pointer;
     margin-left: 20px !important;
 }
@@ -16,5 +16,10 @@
 .text-decorator-none {
     text-decoration: none;
     color: #fff !important;
-    width: 220px;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.top-space {
+    margin-top: 10px;
 }

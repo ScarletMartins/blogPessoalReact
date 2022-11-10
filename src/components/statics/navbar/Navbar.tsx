@@ -4,7 +4,8 @@ import Avatar from "@mui/material/Avatar";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -40,6 +41,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Navbar() {
+  const [token, setToken] = useLocalStorage("token");
+  let navigate = useNavigate();
+
+  function goLogout() {
+    setToken("");
+    alert("Usuário desconectado");
+    navigate("/login");
+  }
+
   return (
     <>
       <AppBar position="static">
@@ -48,7 +58,7 @@ function Navbar() {
             <img
               src="https://imgur.com/JrQAbe2.png"
               alt=""
-              style={{ height: 30, width: 100}}
+              style={{ height: 30, width: 100 }}
             />
           </Box>
 
@@ -58,54 +68,51 @@ function Navbar() {
             style={{ color: "#fff" }}
             marginLeft={5}
           >
-            <Box mx={1} className="cabecalho">
-              <Link to="/home" className="text-decorator-none">
+            <Link to="/home" className="text-decorator-none">
+              <Box mx={1} className="cabecalho">
                 <Typography variant="h6" color="inherit">
                   Home
                 </Typography>
-              </Link>
-            </Box>
-            <Box mx={1} className="cabecalho">
-              <Link to="/posts" className="text-decorator-none">
+              </Box>
+            </Link>
+            <Link to="/posts" className="text-decorator-none">
+              <Box mx={1} className="cabecalho">
                 <Typography variant="h6" color="inherit">
                   Postagens
                 </Typography>
-              </Link>
-            </Box>
-            <Box mx={1} className="cabecalho">
-              <Link to="/temas" className="text-decorator-none">
+              </Box>
+            </Link>
+            <Link to="/temas" className="text-decorator-none">
+              <Box mx={1} className="cabecalho">
                 <Typography variant="h6" color="inherit">
                   Temas
                 </Typography>
-              </Link>
-            </Box>
-            <Box mx={1} className="cabecalho">
-              <Typography
-                variant="h6"
-                color="inherit"
-                className="text-decorator-none"
-              >
-                Cadastrar Tema
-              </Typography>
-            </Box>
-            <Link to="/login" className="text-decorator-none">
-              <Box>
-                <a href="">
-                  <LogoutIcon
-                    style={{
-                      color: "#fff",
-                      position: "absolute",
-                      right: 10,
-                      width: "40",
-                      height: "40",
-                    }}
-                  />
-                </a>
+              </Box>
+            </Link>
+            <Link to="/formularioTema" className="text-decorator-none">
+              <Box mx={1} className="cabecalho">
+                <Typography variant="h6" color="inherit">
+                  Novo tema
+                </Typography>
               </Box>
             </Link>
 
+            <Box onClick={goLogout}>
+              <a href="">
+                <LogoutIcon
+                  style={{
+                    color: "#fff",
+                    position: "absolute",
+                    right: 10,
+                    width: "40",
+                    height: "40",
+                  }}
+                />
+              </a>
+            </Box>
+
             <Box>
-              <Link to='/home'>
+              <Link to="/login">
                 <Avatar
                   style={{ position: "absolute", right: 60 }}
                   alt="Scarlet"

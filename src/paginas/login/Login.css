@@ -14,3 +14,12 @@
 .text-decorator-none {
     text-decoration: none;
 }
+
+.cad-link {
+    text-decoration: none;
+    color: black;
+}
+.cad-link:hover {
+    text-decoration: none;
+    color: #ffbe0b;
+}

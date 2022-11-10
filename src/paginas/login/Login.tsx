@@ -58,14 +58,14 @@ function Login() {
                             <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario"  variant="outlined" label='Usuário (e-mail)' name='usuario' fullWidth margin="normal"/>
                             <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" variant="outlined" label='Senha' name='senha' type='password' fullWidth margin="normal"/>
                             <Box marginBottom={2} textAlign='center'>
-                                    <Button type="submit" variant="contained" color="primary">Entrar</Button> 
+                                    <Button type="submit" variant="contained" color="primary" style={{backgroundColor: '#ffbe0b', fontWeight: 'bold'}}>Entrar</Button> 
                             </Box>
                         </form>
                         <Box display='flex' justifyContent='center' marginTop={2}>
                             <Box marginRight={1}>
                                 <Typography variant="subtitle1" gutterBottom align="center">Ainda não tem uma conta?</Typography>
                             </Box>
-                                 <Link to='/cadastrousuario'>
+                                 <Link to='/cadastrousuario' className="cad-link">
                                     <Typography variant="subtitle1" gutterBottom align="center" className="textos">Cadastre-se</Typography>
                                 </Link>   
                         </Box>
