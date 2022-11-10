@@ -49,7 +49,7 @@ function CadastroPostagem() {
     }, [id])
 
     async function buscaTema() {
-        await busca('/tema', setTemas, {
+        await busca('/temas', setTemas, {
             headers: {
                 Authorization: token
             }
@@ -113,15 +113,15 @@ function CadastroPostagem() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId('/tema/${e.target.value}', setTema, {
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
                                 Authorization: token
                             }
                         })}>
                             {
-                                temas.map(tema => {
+                                temas.map(tema => (
                                     <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
-                                })
+                                ))
                             }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
