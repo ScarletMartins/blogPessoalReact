@@ -1,3 +1,16 @@
 .topo{
     margin-top: 20px;
 }
+
+.post-botton {
+    background-color: #e10096 !important;
+    color: #fff !important;
+}
+
+.post-botton:hover {
+    font-weight: bold !important;
+}
+
+.post-link {
+    text-decoration: none;
+}

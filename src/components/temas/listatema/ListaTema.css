@@ -1,3 +1,24 @@
+.box-tema {
+    max-width: 50vw;
+    max-height: 30vh !important;
+    transform: translateX(50%);
+    margin-bottom: 15px;
+}
+
 .text-decorator-none{
     text-decoration: none;
+}
+
+.botton-del {
+    background-color: transparent !important;
+    border: 1px solid #e10096 !important;
+    box-shadow: none !important;
+    transform: translateX(34em);
+}
+
+.marginLeftAtt {
+    background-color: #e10096 !important;
+    box-shadow: none;
+    color: #fff !important;
+    transform: translateX(36em);
 }

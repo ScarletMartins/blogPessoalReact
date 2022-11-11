@@ -3,6 +3,12 @@
 }
 
 .btnModal{
-    border-color: white !important;
+    border-color: #e10096 !important;
+    color: #000 !important;
     background-color: white !important;
+    font-family: 'Roboto', sans-serif !important; 
+}
+
+.btnModal:hover {
+    font-size: 16px;
 }

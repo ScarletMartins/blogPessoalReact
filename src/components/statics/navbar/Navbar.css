@@ -3,19 +3,29 @@
 }
 
 .toolbar {
-    background-color: #9A8C98;
+    background-color: #fff;
     height: 55px !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.shadow {
+    box-shadow: 0 0.8px rgba(0, 0, 0, 0.384) !important;
 }
 
 .cabecalho {
     min-width: 80px;
     cursor: pointer;
     margin-left: 20px !important;
+    text-align: center;
+}
+
+.MuiTypography-h6:hover {
+    font-size: 22px !important;
 }
 
 .text-decorator-none {
     text-decoration: none;
-    color: #fff !important;
+    color: #000 !important;
     width: 150px;
     margin-top: 10px;
 }

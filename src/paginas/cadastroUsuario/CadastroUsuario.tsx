@@ -4,13 +4,13 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import "./CadastroUsuario.css";
 import User from "../../models/User";
 import { cadastroUsuario } from "../../service/Service";
+import { toast } from "react-toastify";
 
 function CadastroUsuario() {
-
   let history = useNavigate();
 
   const [confirmarSenha, setConfirmarSenha] = useState<String>("");
-  
+
   const [user, setUser] = useState<User>({
     id: 0,
     nome: "",
@@ -45,19 +45,37 @@ function CadastroUsuario() {
   }
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(user)
+    console.log(user);
     if (confirmarSenha === user.senha && user.senha.length >= 8) {
       try {
-        await cadastroUsuario('/usuarios/cadastrar', user, setUserResult);
-        alert('Usuário cadastrado com sucesso');
+        await cadastroUsuario("/usuarios/cadastrar", user, setUserResult);
+        toast("Usuário cadastrado com sucesso", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "light",
+          progress: undefined,
+        });
       } catch (error) {
-        alert('Falha no servidor');
+        alert("Falha no servidor");
       }
     } else {
-      alert('As senhas não conferem. Verificar novamente');
+      toast.error("Dados inconsistentes. Verificar novamente", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "light",
+        progress: undefined,
+      });
 
-      setUser({ ...user, senha: ''});
-      setConfirmarSenha('')
+      setUser({ ...user, senha: "" });
+      setConfirmarSenha("");
     }
   }
 
@@ -88,6 +106,7 @@ function CadastroUsuario() {
               name="nome"
               fullWidth
               margin="normal"
+              className="cad-shadow"
             />
             <TextField
               value={user.usuario}
@@ -100,6 +119,7 @@ function CadastroUsuario() {
               name="usuario"
               fullWidth
               margin="normal"
+              className="cad-shadow"
             />
             <TextField
               value={user.senha}
@@ -113,6 +133,7 @@ function CadastroUsuario() {
               type="password"
               fullWidth
               margin="normal"
+              className="cad-shadow"
             />
             <TextField
               value={confirmarSenha}
@@ -121,27 +142,36 @@ function CadastroUsuario() {
               }
               id="confirmarSenha"
               variant="outlined"
-              label="confirmarSenha"
+              label="Confirmar Senha"
               name="confirmarSenha"
               type="password"
               fullWidth
               margin="normal"
+              className="cad-shadow"
             />
-            <Box marginBottom={2} textAlign="center">
+            <Box marginBottom={2} marginTop={3} textAlign="center">
               <Link to="/login" className="text-decorator-none">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className="btnCancelar"
-                >
+                <Button variant="contained" className="btnCancelar">
                   Cancelar
                 </Button>
               </Link>
-              <Button type="submit" variant="contained" color="primary">
+              <Button
+                type="submit"
+                variant="contained"
+                className="btnCadastrar"
+              >
                 Cadastrar
               </Button>
             </Box>
           </form>
+          <Box display="flex" alignItems="center" justifyContent="center">
+            <Typography align="center">Já tem uma conta?</Typography>
+          </Box>
+          <Link to="/login" className="cad-ent">
+            <Typography variant="subtitle1" gutterBottom align="center">
+              Entre aqui ➜
+            </Typography>
+          </Link>
         </Box>
       </Grid>
     </Grid>

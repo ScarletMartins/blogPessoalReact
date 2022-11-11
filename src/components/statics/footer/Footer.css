@@ -1,16 +1,24 @@
+.chamada {
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 400 ;
+}
+
 .redes-bg{
-    background-color: #9A8C98;
+    background-color: #fff;
 }
 
 .redes{
     font-size: 60px !important;
-    color: #fff;
+    color: #e10096;
+}
+
+.redes:hover{
+    font-size: 65px !important;
 }
 
 .texto {
-    color: #fff;
-}
-
-.chamada {
-    color: #fff;
+    color: #000;
 }

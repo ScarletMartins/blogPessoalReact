@@ -16,13 +16,13 @@ function TabPostagem() {
    /*Nesse tabcontext, ao clicar em postagens ou sobre nós, ele vai definir o valor e vai redirecionar para a página escolhida*/ <>
       <TabContext value={value}> 
         <AppBar position="static">
-          <Tabs centered indicatorColor="secondary" onChange={handleChange} style={{background: '#9A8C98'}}>
+          <Tabs centered indicatorColor="secondary" onChange={handleChange} style={{background: '#e10096'}}>
             <Tab label="Todas as postagens" value="1"  className='tab'/>
             <Tab label="Sobre mim" value="2"  className='tab'/>
           </Tabs>
         </AppBar>
         <TabPanel value="1" >
-          <Box display="flex" flexWrap="wrap" justifyContent="center">
+          <Box>
             <ListaPostagem />
           </Box>
         </TabPanel>

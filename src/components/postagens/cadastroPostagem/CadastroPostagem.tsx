@@ -1,22 +1,38 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
 import './CadastroPostagem.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../service/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
+import User from '../../../models/User';
 
 function CadastroPostagem() {
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [token, setToken] = useLocalStorage("token");
+    
+    const token = useSelector<TokenState, TokenState['tokens']>(
+        (state) => state.tokens
+    )
+
     const [temas, setTemas] = useState<Tema[]>([]);
   
     useEffect(() => {
-      if (token == "") {
-        alert("Você precisa estar logado");
+      if (token === "") {
+        toast.error('Você precisa estar logado', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: 'light',
+            progress: undefined
+          });
         navigate("/login");
       }
     }, [token]);
@@ -31,13 +47,27 @@ function CadastroPostagem() {
         titulo: '',
         texto: '',
         tema: null,
-        data: ''
+        data: '',
+        usuario: null
     });
+
+    const userId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
+    )
+
+    const [usuario, setUsuario] = useState<User>({
+        id: +userId,
+        nome: '',
+        usuario: '',
+        senha: '',
+        foto: ''
+    })
 
     useEffect(() => {
         setPostagem({
             ...postagem,
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
     }, [tema])
 
@@ -61,7 +91,7 @@ function CadastroPostagem() {
       }, [temas.length])
 
     async function findByIdPostagem(id: string) {
-        await buscaId('/postagens/${id}', setPostagem, {
+        await buscaId(`/postagens/${id}`, setPostagem, {
             headers: {
                 Authorization: token
             }
@@ -80,19 +110,37 @@ function CadastroPostagem() {
         e.preventDefault()
 
         if(id !== undefined) {
-            put(`/postagens`, postagem, setPostagem, {
+            put('/postagens', postagem, setPostagem, {
                 headers: {
                     Authorization: token
                 }
             })
-            alert('Postagem atualizada com sucesso');
+            toast('Postagem atualizada com sucesso', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: 'light',
+                progress: undefined
+              });
         } else {
-            post(`/postagens`, postagem, setPostagem, {
+            post('/postagens', postagem, setPostagem, {
                 headers: {
                     Authorization: token
                 }
             })    
-            alert('Postagem cadastrada com sucesso');
+            toast('Postagem cadastrada com sucesso', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: 'light',
+                progress: undefined
+              });
         back()
     }
 
@@ -104,7 +152,7 @@ function CadastroPostagem() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastro de postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
@@ -125,9 +173,11 @@ function CadastroPostagem() {
                             }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
-                    </Button>
+                    <Link to='/posts' className='post-link'>
+                        <Button type="submit" variant="contained" disabled={tema.id === 0} className='post-botton'>
+                            Finalizar
+                        </Button>
+                    </Link>
                 </FormControl>
             </form>
         </Container>

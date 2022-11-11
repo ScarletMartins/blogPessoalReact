@@ -1,5 +1,5 @@
 .imagem2 {
-    background-image: url('https://imgur.com/Gr84zGf.png');
+    background-image: url('https://imgur.com/yVkpSmg.png');
     min-height: 100vh;
     min-height: 100vh;
     background-repeat: no-repeat;
@@ -13,4 +13,20 @@
 
 .btnCancelar {
     margin-right: 20px !important;
+    background-color: #e1009685 !important;
+}
+
+.btnCadastrar {
+    background-color: #e10096 !important;
+}
+
+.cad-ent {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #e10096;
+}
+
+.cad-shadow {
+    box-shadow: 0 0.8px rgba(0, 0, 0, 0.384) !important;
 }

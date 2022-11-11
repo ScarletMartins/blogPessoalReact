@@ -3,6 +3,20 @@
 }
 
 .final-bottom {
-    margin-left: 430px;
-    color: #ffbe0b;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none !important;
+}
+
+.button-cancelar {
+    background-color: #e1009685 !important;
+    font-weight: bold;
+    color: #fff !important;
+    margin-right: 10px !important;
+}
+
+.button-finalizar {
+    background-color: #e10096 !important;
+    font-weight: bold;
+    color: #fff !important;
 }

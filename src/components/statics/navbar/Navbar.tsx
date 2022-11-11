@@ -6,6 +6,12 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
+import {toast} from 'react-toastify';
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"></link>;
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -41,107 +47,120 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Navbar() {
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function goLogout() {
-    setToken("");
-    alert("Usuário desconectado");
+    dispatch(addToken(''));
+    toast.info('Usuário deslogado', {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      theme: 'dark',
+      progress: undefined
+    });
     navigate("/login");
+  }
+
+  var navbarComponent;
+
+  if(token != ''){
+    navbarComponent = <AppBar position="static" className='shadow'>
+    <Toolbar variant="dense" className="toolbar">
+
+      <Box
+        display="flex"
+        justifyContent="center"
+        style={{ color: "#fff" }}
+        marginLeft={5}
+      >
+        <Link to="/home" className="text-decorator-none">
+          <Box mx={1} className="cabecalho">
+            <Typography variant="h6" color="inherit">
+              Home
+            </Typography>
+          </Box>
+        </Link>
+        <Link to="/posts" className="text-decorator-none">
+          <Box mx={1} className="cabecalho">
+            <Typography variant="h6" color="inherit">
+              Postagens
+            </Typography>
+          </Box>
+        </Link>
+        <Link to="/temas" className="text-decorator-none">
+          <Box mx={1} className="cabecalho">
+            <Typography variant="h6" color="inherit">
+              Temas
+            </Typography>
+          </Box>
+        </Link>
+        <Link to="/formularioTema" className="text-decorator-none">
+          <Box mx={1} className="cabecalho">
+            <Typography variant="h6" color="inherit">
+              Novo tema
+            </Typography>
+          </Box>
+        </Link>
+
+        <Box onClick={goLogout}>
+          <a href="">
+            <LogoutIcon
+              style={{
+                color: "#000",
+                position: "absolute",
+                right: 10,
+                width: "40",
+                height: "40",
+              }}
+            />
+          </a>
+        </Box>
+
+        <Box>
+          <Link to="/perfil">
+            <Avatar
+              style={{ position: "absolute", right: 60 }}
+              alt="Scarlet"
+              src="https://github.com/ScarletMartins.png"
+            />
+          </Link>
+        </Box>
+        <Box>
+          <Search
+            style={{
+              position: "absolute",
+              right: 210,
+              color: "#000",
+              backgroundColor: "#fff",
+              border: "1px solid #e10096",
+              borderRadius: '15px'
+            }}
+          >
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Buscar..."
+              inputProps={{ "aria-label": "search" }}
+              style={{ fontWeight: "bold" }}
+            />
+          </Search>
+        </Box>
+      </Box>
+    </Toolbar>
+  </AppBar>
   }
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar variant="dense" className="toolbar">
-          <Box className="cabecalho">
-            <img
-              src="https://imgur.com/JrQAbe2.png"
-              alt=""
-              style={{ height: 30, width: 100 }}
-            />
-          </Box>
-
-          <Box
-            display="flex"
-            justifyContent="center"
-            style={{ color: "#fff" }}
-            marginLeft={5}
-          >
-            <Link to="/home" className="text-decorator-none">
-              <Box mx={1} className="cabecalho">
-                <Typography variant="h6" color="inherit">
-                  Home
-                </Typography>
-              </Box>
-            </Link>
-            <Link to="/posts" className="text-decorator-none">
-              <Box mx={1} className="cabecalho">
-                <Typography variant="h6" color="inherit">
-                  Postagens
-                </Typography>
-              </Box>
-            </Link>
-            <Link to="/temas" className="text-decorator-none">
-              <Box mx={1} className="cabecalho">
-                <Typography variant="h6" color="inherit">
-                  Temas
-                </Typography>
-              </Box>
-            </Link>
-            <Link to="/formularioTema" className="text-decorator-none">
-              <Box mx={1} className="cabecalho">
-                <Typography variant="h6" color="inherit">
-                  Novo tema
-                </Typography>
-              </Box>
-            </Link>
-
-            <Box onClick={goLogout}>
-              <a href="">
-                <LogoutIcon
-                  style={{
-                    color: "#fff",
-                    position: "absolute",
-                    right: 10,
-                    width: "40",
-                    height: "40",
-                  }}
-                />
-              </a>
-            </Box>
-
-            <Box>
-              <Link to="/login">
-                <Avatar
-                  style={{ position: "absolute", right: 60 }}
-                  alt="Scarlet"
-                  src="https://github.com/ScarletMartins.png"
-                />
-              </Link>
-            </Box>
-            <Box>
-              <Search
-                style={{
-                  position: "absolute",
-                  right: 210,
-                  color: "#fff",
-                  backgroundColor: "#5A4F58",
-                }}
-              >
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                  style={{ fontWeight: "bold" }}
-                />
-              </Search>
-            </Box>
-          </Box>
-        </Toolbar>
-      </AppBar>
+      {navbarComponent}
     </>
   );
 }

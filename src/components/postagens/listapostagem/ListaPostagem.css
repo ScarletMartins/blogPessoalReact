@@ -1,3 +1,33 @@
+.box-card {
+    max-width: 50vw;
+    max-height: 50vh !important;
+    transform: translateX(50%);
+    margin-bottom: 15px;
+}
+
 .text-decorator-none{
     text-decoration: none;
+}
+
+.button-delete {
+    background-color: #e1009685 !important;
+    box-shadow: none !important;
+    transform: translateX(34em);
+    color: #fff !important;
+}
+
+.button-delete:hover {
+    background-color: #e10096 !important;
+    font-weight: bold;
+}
+
+.marginLeft1 {
+    background-color: #e10096 !important;
+    box-shadow: none !important;
+    transform: translateX(38em);
+    color: #fff !important;
+}
+
+.post {
+    margin-top: 20px !important;
 }

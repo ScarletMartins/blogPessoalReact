@@ -1,14 +1,14 @@
-import React from 'react'
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import {Button } from "@material-ui/core"
-import CloseIcon from '@material-ui/icons/Close';
-import './ModalPostagem.css';
-import { Box, Modal } from '@mui/material';
-import CadastroPostagem from '../cadastroPostagem/CadastroPostagem';
-
+import React from "react";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import "./ModalPostagem.css";
+import { Box, Modal } from "@mui/material";
+import CadastroPostagem from "../cadastroPostagem/CadastroPostagem";
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"></link>
 
 function getModalStyle() {
-  const top = 50 ;
+  const top = 50;
   const left = 50;
 
   return {
@@ -21,17 +21,17 @@ function getModalStyle() {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
-      position: 'absolute',
+      position: "absolute",
       width: 400,
       backgroundColor: theme.palette.background.paper,
-      border: '2px solid #000',
+      border: "2px solid #000",
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
-  }),
+  })
 );
 
-function ModalPostagem () {
+function ModalPostagem() {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
@@ -47,21 +47,18 @@ function ModalPostagem () {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Box display="flex" justifyContent="flex-end" className="cursor">
-        <CloseIcon onClick={handleClose}/>
-      
+        <CloseIcon onClick={handleClose} />
       </Box>
-      
-      <CadastroPostagem/>
-      
+
+      <CadastroPostagem />
     </div>
   );
 
   return (
     <div>
-      <Button
-        variant="outlined"
-        className="btnModal"
-        onClick={handleOpen}>Nova Postagem</Button>
+      <Button variant="outlined" className="btnModal" onClick={handleOpen}>
+        Nova Postagem
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

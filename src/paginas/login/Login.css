@@ -1,7 +1,6 @@
 .fundoLogin {
-    background-image: url('https://imgur.com/Gr84zGf.png');
-    min-height: 100vh;
-    min-height: 100vh;
+    background-image: url('https://imgur.com/NGiBIDP.png');
+    min-height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,5 +20,5 @@
 }
 .cad-link:hover {
     text-decoration: none;
-    color: #ffbe0b;
+    color: #e10096;
 }
