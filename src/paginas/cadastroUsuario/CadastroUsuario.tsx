@@ -120,7 +120,19 @@ function CadastroUsuario() {
               fullWidth
               margin="normal"
               className="cad-shadow"
+              required
+              placeholder="digite um e-mail válido"
             />
+            <TextField
+                value={user.foto}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                  updateModel(event)
+                }
+                name="foto"
+                label="URL da foto"
+                fullWidth
+                margin="normal"
+              />
             <TextField
               value={user.senha}
               onChange={(event: ChangeEvent<HTMLInputElement>) =>
@@ -134,6 +146,8 @@ function CadastroUsuario() {
               fullWidth
               margin="normal"
               className="cad-shadow"
+              required
+              placeholder="mínimo de 8 caracteres, com maísculas, minusculas e números"
             />
             <TextField
               value={confirmarSenha}
@@ -148,13 +162,9 @@ function CadastroUsuario() {
               fullWidth
               margin="normal"
               className="cad-shadow"
+              required
             />
             <Box marginBottom={2} marginTop={3} textAlign="center">
-              <Link to="/login" className="text-decorator-none">
-                <Button variant="contained" className="btnCancelar">
-                  Cancelar
-                </Button>
-              </Link>
               <Button
                 type="submit"
                 variant="contained"

@@ -18,6 +18,8 @@ import { TokenState } from "../../../store/tokens/tokensReducer";
 import { toast } from "react-toastify";
 
 function ListaPostagem() {
+
+  const userId = useSelector<TokenState, TokenState["id"]>((state) => state.id);
   const [posts, setPosts] = useState<Postagem[]>([]);
 
   const token = useSelector<TokenState, TokenState["tokens"]>(
@@ -56,6 +58,8 @@ function ListaPostagem() {
 
   return (
     <>
+      {posts.length === 0 && <div className="loader"></div>}
+
       {posts.map((post) => (
         <Box m={2} className='box-card'>
           <Card>
@@ -73,6 +77,8 @@ function ListaPostagem() {
                 Por: {post.usuario?.nome}
               </Typography>
             </CardContent>
+
+            {post.usuario?.id === +userId &&
             <CardActions>
               <Box display="flex" mb={1.5}>
                 <Link
@@ -104,7 +110,7 @@ function ListaPostagem() {
                   </Box>
                 </Link>
               </Box>
-            </CardActions>
+            </CardActions>}
           </Card>
         </Box>
       ))}

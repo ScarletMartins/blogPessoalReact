@@ -35,12 +35,26 @@ function Login() {
     token: "",
   });
 
+
+
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
       ...userLogin,
       [e.target.name]: e.target.value,
     });
   }
+
+  const [loginForm, setLoginForm] = useState(true)
+
+  const padraoEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  useEffect(() => {
+    if(userLogin.usuario.match(padraoEmail) && userLogin.senha.length >= 8) {
+      setLoginForm(false)
+    } else {
+      setLoginForm(true)
+    }
+  }, [userLogin])
+
 
   useEffect(() => {
     if (token !== "") {
@@ -54,9 +68,9 @@ function Login() {
     try {
       await login(`/usuarios/logar`, userLogin, setRespUserLogin);
 
-      toast("Usuário cadastrado com sucesso", {
+      toast("Usuário logado", {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
@@ -129,6 +143,7 @@ function Login() {
                   variant="contained"
                   color="primary"
                   style={{ backgroundColor: "#e10096", fontWeight: "bold" }}
+                  disabled={loginForm}
                 >
                   Entrar
                 </Button>

@@ -129,7 +129,7 @@ function CadastroTema() {
               Cancelar
             </Button>
             <Button type="submit" variant="contained" className="button-finalizar">
-              Finalizar
+              Cadastrar
             </Button>
           </div>
         </Link>

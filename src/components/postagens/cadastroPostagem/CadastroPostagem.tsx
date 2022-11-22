@@ -173,11 +173,11 @@ function CadastroPostagem() {
                             }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Link to='/posts' className='post-link'>
+                    
                         <Button type="submit" variant="contained" disabled={tema.id === 0} className='post-botton'>
-                            Finalizar
+                            Publicar
                         </Button>
-                    </Link>
+                    
                 </FormControl>
             </form>
         </Container>

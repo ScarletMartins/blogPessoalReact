@@ -55,14 +55,14 @@ function Navbar() {
 
   function goLogout() {
     dispatch(addToken(''));
-    toast.info('Usuário deslogado', {
+    toast('Usuário deslogado', {
       position: 'top-right',
-      autoClose: 2000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
       draggable: false,
-      theme: 'dark',
+      theme: 'light',
       progress: undefined
     });
     navigate("/login");
